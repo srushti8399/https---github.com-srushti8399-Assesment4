@@ -1,0 +1,49 @@
+<h2 class="text-uppercase text-center mb-5">Employees Data</h2>
+              <div col-md-1></div>
+              <div col-md-9>
+              
+              <table class="row"  align="center" mat-table [dataSource]="employees" class="mat-elevation-z8">
+                <table class="table" align="center">
+                  <thead class="thead-dark">
+
+                
+                <ng-container matColumnDef="Sn">
+                    <th mat-header-cell *matHeaderCellDef><strong> Sr.No</strong> </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Sr}} </td>
+                  </ng-container>
+                
+                <ng-container matColumnDef="Fullname">
+                  <th mat-header-cell *matHeaderCellDef> Fullname </th>
+                  <td mat-cell *matCellDef="let element"> {{element.firstname + element.middlename +element.lastname}} </td>
+                </ng-container>
+              
+               
+            
+                <ng-container matColumnDef="Emailid">
+                  <th mat-header-cell *matHeaderCellDef>Email </th>
+                  <td mat-cell *matCellDef="let element"> {{element.Emailid}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Dob">
+                    <th  mat-header-cell *matHeaderCellDef style="text-align:centre ;">Date of Birth </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Dob}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Contactno">
+                    <th  mat-header-cell *matHeaderCellDef style="text-align:centre ;">Contact </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ContactNo}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Address">
+                    <th  mat-header-cell *matHeaderCellDef style="text-align:centre ;">address </th>
+                    <td mat-cell *matCellDef="let element"> {{element.add1}} </td>
+                </ng-container>
+                
+              
+             
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </thead>
+                </table>
+            
+              </table>
+              </div>

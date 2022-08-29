@@ -1,0 +1,137 @@
+
+
+<h2 class="text-uppercase text-center mb-5 padding">Create Employee</h2>
+<form class="center padding-table" [formGroup]="employeeForm" (ngSubmit)="submit()">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3 mb-4">
+            <div class="form-outline">
+        <mat-form-field appearance="fill">
+            <mat-label>EmployeeType</mat-label>
+            <mat-select [formControl]="emptype" multiple>
+              <mat-select-trigger>
+                {{emptype.value?.[0] || ''}}
+                <span *ngIf="(emptype.value?.length || 0) > 1" class="example-additional-selection">
+                  (+{{(emptype.value?.length || 0) - 1}} {{emptype.value?.length === 2 ? 'other' : 'others'}})
+                </span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let emptype of  emptypeList" [value]="emptype">{{emptype}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+         <div class="col-md-3 mb-4">
+           <div class="form-outline">
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>FirstName</mat-label>
+                <input required id="name1"  matInput placeholder="Enter FirstName"   name="firstname"  formControlName="firstname"  />
+                   <mat-error *ngIf="employeeForm.get('firstname')!.errors!==null && employeeForm.get('firstname')!.errors!['required']">
+                  FirstName is <strong>required</strong>
+                </mat-error>  
+              </mat-form-field>
+            </div>
+          </div>
+
+          
+          <div class="col-md-3 mb-4">
+            <div class="form-outline">
+             <mat-form-field appearance="fill" class="example-full-width">
+                 <mat-label>MiddleName</mat-label>
+                 <input  id="name2"  matInput placeholder="Enter MiddleName"   name="middlename"  formControlName="middlename"  />
+               </mat-form-field>
+             </div>
+           </div>
+           <div class="col-md-3 mb-4">
+            <div class="form-outline">
+             <mat-form-field appearance="fill" class="example-full-width">
+                 <mat-label>lastName</mat-label>
+                 <input required id="name2"  matInput placeholder="Enter lastName"   name="lastname"  formControlName="lastname"  /> 
+                    <mat-error *ngIf="employeeForm.get('lastname')!.errors!==null && employeeForm.get('lastname')!.errors!['required']">
+                   FirstName is <strong>required</strong>
+                 </mat-error> 
+                </mat-form-field>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3 mb-4">
+            <div class="form-outline">
+             <mat-form-field appearance="fill" class="example-full-width">
+                 <mat-label>Date of Birth</mat-label>
+                 <input  id="dob"  matInput placeholder="Enter Dateofbirth"   name="dob"  formControlName="dob"  />
+               </mat-form-field>
+             </div>
+           </div>
+          <div class="col-md-3 mb-4">
+            <div class="form-outline">
+             <mat-form-field appearance="fill" class="example-full-width">
+                 <mat-label>EmailId</mat-label>
+                 <input  id="email"  matInput placeholder="Enter Email"   name="emailid"  formControlName="emailid"  />
+               </mat-form-field>
+             </div>
+           </div>
+           <div class="col-md-3 mb-4">
+            <div class="form-outline">
+             <mat-form-field appearance="fill" class="example-full-width">
+                 <mat-label>Contact No</mat-label> 
+                 <input  id="contact"  matInput placeholder="Enter Contact details"   name="contactno"  formControlName="contactno"  /> 
+                  <mat-error *ngIf="employeeForm.get('contactno')!.errors!==null && employeeForm.get('contactno')!.errors!['required']">
+                    Contact no is <strong>required</strong>
+                  </mat-error>
+                  <mat-error *ngIf="employeeForm.get('contactno')!.errors!==null && employeeForm.get('contactno')!.errors!['maxlength']">
+                    Contact no is <strong>required</strong>
+                  </mat-error> 
+                 </mat-form-field>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+         <div class="col-md-3 mb-4">
+           <div class="form-outline">
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Address</mat-label>
+                <input required id="add"  matInput placeholder="Enter Address"   name="address"  formControlName="address"  /> 
+                   <mat-error *ngIf="employeeForm.get('address')!.errors!==null && employeeForm.get('address')!.errors!['required']">
+                  Address is <strong>required</strong>
+                </mat-error>  
+               </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="form-outline">
+             <mat-form-field appearance="fill" class="example-full-width">
+                 <mat-label>pincode</mat-label>
+                 <input required id="pincode"  matInput placeholder="Enter Pincode"   name="pincode"  formControlName="pincode"  /> 
+                    <mat-error *ngIf="employeeForm.get('pincode')!.errors!==null && employeeForm.get('pincode')!.errors!['required']">
+                   pincode is <strong>required</strong>
+                 </mat-error> 
+                 <mat-error *ngIf="employeeForm.get('pincode')!.errors!==null && employeeForm.get('pincode')!.errors!['maxlength']">
+                    Contact no is <strong>required</strong>
+                  </mat-error> 
+                </mat-form-field>
+             </div>
+           </div>
+           <div class="col-md-3 mb-4">
+            <div class="form-outline">
+             <mat-form-field appearance="fill" class="example-full-width">
+                <mat-radio-group aria-label="Gender">
+                    <mat-radio-button value="1">Male</mat-radio-button>
+                    <mat-radio-button value="2">Female</mat-radio-button>
+                  </mat-radio-group> 
+               </mat-form-field>
+             </div>
+           </div>
+        </div>
+        <div class="container" style="text-align:center;">
+  
+  
+            <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="button" name="submitbutton" >Create</button>
+        </div>
+        </form> 
